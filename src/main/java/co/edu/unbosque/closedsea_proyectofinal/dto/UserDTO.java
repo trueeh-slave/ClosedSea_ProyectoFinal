@@ -1,12 +1,12 @@
 package co.edu.unbosque.closedsea_proyectofinal.dto;
 
-public class User {
+public class UserDTO {
     private String email;
     private String password;
     private String name;
     private String role;
 
-    public User(String email, String password, String name, String role) {
+    public UserDTO(String email, String password, String name, String role) {
         this.email = email;
         this.password = password;
         this.name = name;
