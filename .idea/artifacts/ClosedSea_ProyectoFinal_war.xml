@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ClosedSea_ProyectoFinal:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ClosedSea_ProyectoFinal</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ClosedSea_ProyectoFinal-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ClosedSea_ProyectoFinal:war exploded" />
+    </root>
+  </artifact>
+</component>
