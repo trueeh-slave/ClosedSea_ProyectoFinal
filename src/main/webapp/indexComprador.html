@@ -25,12 +25,6 @@
                 <a href="#" class="logo nav-link">ClosedSea</a>
                 <!-- Navbar made with an ordered list and within that list an unordered list --->
                 <ul class="nav-menu">
-                    <!--<li class="nav-menu-item ">
-                        <a href="create-collection.html" class="nav-menu-link nav-link">Create Colection</a>
-                    </li>
-                    <li class="nav-menu-item ">
-                        <a href="create-nft-piece.html" class="nav-menu-link nav-link">Create NFT</a>
-                    </li>-->
                     <li class="nav-menu-item nav-menu-login">
                         <a href="#" class="nav-menu-link nav-link" id="username-prueba"></a>
                     </li>
@@ -62,11 +56,12 @@
         </div>
 
         <script>
-            let username = sessionStorage.getItem("username");
-            console.log(username);
+            let name = sessionStorage.getItem("name");
+            console.log(name);
 
-            document.getElementById("username-prueba").innerHTML = username;
+            document.getElementById("username-prueba").innerHTML = name;
         </script>
+
     </body>
 
     <!-- Page footer -->
@@ -76,7 +71,7 @@
             <p>Repository Link</p>
             <ul class="members">
                 <li>
-                    <a href="https://github.com/trueeh-slave/Taller2_Programacion.git"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/trueeh-slave/ClosedSea_ProyectoFinal"><i class="fab fa-github"></i></a>
                 </li>
             </ul>
         </div>
