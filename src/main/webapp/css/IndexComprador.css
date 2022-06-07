@@ -231,8 +231,8 @@ gives style to the button explore in the index
     color: #fff;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 55px;
-    padding-right: 55px;
+    padding-left: 35px;
+    padding-right: 35px;
     border-radius: 10px;
     border: none;
     background-color: #0069f3;
@@ -253,8 +253,8 @@ When the course passes, next to the button the button glows up
     color: #fff;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 55px;
-    padding-right: 55px;
+    padding-left: 35px;
+    padding-right: 35px;
     border-radius: 10px;
     border: none;
     background-color: #5427b6;
@@ -283,8 +283,8 @@ Gives style to the button create in the index
     color: #fff;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 55px;
-    padding-right: 55px;
+    padding-left: 25px;
+    padding-right: 25px;
     border-radius: 10px;
     border: 6px #1c1c1f;
     background-color: #313030;

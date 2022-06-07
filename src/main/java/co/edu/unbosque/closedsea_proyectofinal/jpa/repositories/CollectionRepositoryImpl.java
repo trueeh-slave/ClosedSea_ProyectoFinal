@@ -5,26 +5,26 @@ import jakarta.persistence.EntityManager;
 
 import java.util.Optional;
 
-public class CollectionRepoImpl implements CollectionRepository{
+public class CollectionRepositoryImpl implements CollectionRepository {
 
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
-    public CollectionRepoImpl(EntityManager entityManager) {
+    public CollectionRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
     public Optional<Collection> save(Collection collection) {
-
-        try{
-
-            entityManager.getTransaction().commit();
+        try {
+            entityManager.getTransaction().begin();
             entityManager.persist(collection);
             entityManager.getTransaction().commit();
 
-        } catch (Exception e){
+            return Optional.of(collection);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
         return Optional.empty();
     }
 }

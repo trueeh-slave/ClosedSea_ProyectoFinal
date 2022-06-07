@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ClosedSea_ProyectoFinal" target="1.8" />
+      <module name="ClosedSea_ProyectoFinal" target="10" />
     </bytecodeTargetLevel>
   </component>
 </project>

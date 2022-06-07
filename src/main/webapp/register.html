@@ -66,19 +66,19 @@
                 e.preventDefault();
                 let data = {
                     "email": document.getElementById("email").value,
-                    "username": document.getElementById("name").value,
+                    "name": document.getElementById("name").value,
                     "password": document.getElementById("password").value,
                     "role": document.getElementById("role").value,
                 };
 
-                let response = await fetch("./api/users/register", {
+                let response = await fetch("./api/users", {
                     method: "POST",
                     headers: {
-                        //"Content-type": "application/json"
-                        "Content-type": "application/x-www-form-urlencoded",
+                        "Content-type": "application/json"
+                        //"Content-type": "application/x-www-form-urlencoded",
                     },
-                    //body: JSON.stringify(data),
-                    body: new URLSearchParams(data),
+                    body: JSON.stringify(data),
+                    //body: new URLSearchParams(data),
                 });
 
                 let message = await response.json();
@@ -90,7 +90,10 @@
                 sessionStorage.setItem("role", data.role);
 
                 // redireccion al index
-                window.location.href = "indexComprador.html";
+                if(data.role == "artista")
+                    window.location.href = "indexArtista.html";
+                else if(data.role == "comprador")
+                    window.location.href = "indexComprador.html";
             }
         </script>
     </body>

@@ -8,7 +8,7 @@
         <jta-data-source>java:/PostgresDS</jta-data-source>
 
         <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.UserApp</class>
-        <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Wallet_History</class>
+        <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.WalletHistory</class>
         <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Collection</class>
 
         <properties>

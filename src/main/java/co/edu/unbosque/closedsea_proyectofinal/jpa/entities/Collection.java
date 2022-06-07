@@ -15,17 +15,21 @@ public class Collection {
     private String name;
 
     @Column(name = "description")
+    private String description;
+
+    @Column(name = "category")
     private String category;
 
     @ManyToOne
     @JoinColumn(name = "email")
     private UserApp userApp;
 
-    public Collection() {}
+    public Collection() {
+    }
 
-    public Collection(Integer id, String name, String category, UserApp userApp) {
-        this.id = id;
+    public Collection(String name, String description, String category, UserApp userApp) {
         this.name = name;
+        this.description = description;
         this.category = category;
         this.userApp = userApp;
     }
@@ -34,31 +38,15 @@ public class Collection {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getDescription() {
+        return description;
     }
 
     public String getCategory() {
         return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public UserApp getUserApp() {
-        return userApp;
-    }
-
-    public void setUserApp(UserApp userApp) {
-        this.userApp = userApp;
     }
 }

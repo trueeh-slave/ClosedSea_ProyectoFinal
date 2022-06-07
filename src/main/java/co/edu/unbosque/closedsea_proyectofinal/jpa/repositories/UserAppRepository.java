@@ -9,4 +9,5 @@ public interface UserAppRepository {
     Optional<UserApp> findByEmail(String email);
 
     Optional<UserApp> save(UserApp userApp);
+
 }

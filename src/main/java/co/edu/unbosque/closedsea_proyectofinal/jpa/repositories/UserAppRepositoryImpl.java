@@ -5,11 +5,11 @@ import jakarta.persistence.EntityManager;
 
 import java.util.Optional;
 
-public class UserAppRepoImpl implements UserAppRepository{
+public class UserAppRepositoryImpl implements UserAppRepository {
 
     private EntityManager entityManager;
 
-    public UserAppRepoImpl(EntityManager entityManager) {
+    public UserAppRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -21,15 +21,16 @@ public class UserAppRepoImpl implements UserAppRepository{
 
     @Override
     public Optional<UserApp> save(UserApp userApp) {
-        try{
+        try {
             entityManager.getTransaction().begin();
             entityManager.persist(userApp);
             entityManager.getTransaction().commit();
 
             return Optional.of(userApp);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
         return Optional.empty();
     }
 }
