@@ -35,16 +35,23 @@
                 <h1>Crear nueva coleccion</h1>
                 <!-- Div with the collection title information-->
                 <div class="grupo">
-                    <input type="text" name="" id="collection" required><span class="barra"></span>
-                    <label>Titulo de la colección</label>
+                    <input type="text" name="" id="name" placeholder="Titulo de la coleccion"><span class="barra"></span>
                 </div>
                 <!-- Div with the collection category information-->
+
+                <div class ="grupo">
+                    <input type="text" name="" id="description" placeholder="Descripcion"><span class="barra"></span>
+                </div>
+<!--                <div class="grupo">
+                    <textarea"text" name="" id="description" required><textarea<<span class="barra"></span>
+                    <label>Descripcion de la coleccion</label>
+                </div>-->
+
                 <div class="grupo">
-                    <input type="text" name="" id="author" required><span class="barra"></span>
-                    <label>Author</label>
+                    <input type="text" name="" id="category" placeholder="category"><span class="barra"></span>
                 </div>
                 <!-- Button to create and publish the nft -->
-                <a href="indexLOG.html">
+                <a href="indexComprador.html">
                     <button type="submit">Crear</button>
                 </a>
                 <a href="indexLOG.html">
@@ -52,42 +59,37 @@
                 </a>
             </div>
         </form>
-<script>
-    const getName = async () => {
-        document.getElementById("name").value = localStorage.getItem("username");
-    }
+        <script>
 
-    const form = document.querySelector("formulario")
+            const createCollectionForm = document.querySelector("form");
 
-    form.onsubmit = async (e) => {
-        e.preventDefault()
+            createCollectionForm.onsubmit = async (e) => {
+                e.preventDefault();
+                let data = {
+                    "name": document.getElementById("name").value,
+                    "author": document.getElementById("author").value,
+                    "email": sessionStorage.getItem("email"),
+                    "description": document.getElementById("description").value,
+                };
 
-        const formData = new FormData(form);
+                let response = await fetch("./api/users/"+data.email+"/collections", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify(data),
+                });
 
-        let author = document.getElementById("author") //agregar author
-        let collection = document.getElementById("collection").value;
+                let message = await response.json();
+                alert(message);
 
-            let responseData = await fetch(`.api/users/${author}/collections/${collection}`);
-            let resultData = await responseData.json();
+                sessionStorage.setItem("name", data.name);
+                sessionStorage.setItem("author", data.author);
+                sessionStorage.setItem("description", data.description);
 
-        if(resultData.collection != collection){
-            let response = await fetch(`.api/users/${author}/collections` , {
-                method: "POST" ,
-                headers : {
-                    "Content-Type": "application/x-www-form.urlencoded",
-                },
-                body : new URLSearchParams(formData)
-            });
-            let result = response.json();
+                window.location.href = "create-collection.html";
 
-            sessionStorage.setItem("collection", result.collection);
-            window.location.href = "create-nft-piece.html"
-        } else {
-            alert("La coleccion ya existe")
-        }
-    }
-
-    window.addEventListener("DOMContextLoaded", getName());
-</script>
+            }
+        </script>
     </body>
 </html>
