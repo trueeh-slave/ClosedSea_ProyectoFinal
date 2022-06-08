@@ -40,22 +40,19 @@
                 </div>
                 <!-- Div with the collection category information-->
                 <div class="grupo">
-                    <input type="text" name="" id="author" required><span class="barra"></span>
-                    <label>Author</label>
+                    <input type="text" name="" id="description" required><span class="barra"></span>
+                    <label>Descripcion</label>
                 </div>
 
                 <div class="grupo">
                     <!--<textarea name="descripcion" id="description" cols="30" rows="10" placeholder="Descripcion"></textarea>-->
-                    <input type="text" id="description" ><span class="barra"></span>
-                    <label>Descripcion</label>
+                    <input type="text" id="category" ><span class="barra"></span>
+                    <label>Categoria</label>
                 </div>
                 <!-- Button to create and publish the nft -->
-
-                <input type="submit" value="Realizar" class="button">
-
-               <!-- <a href="indexLOG.html">
-                    <button type="input">Crear</button>
-                </a>-->
+                <a href="wallet.html">
+                    <button type="submit">Crear</button>
+                </a>
 
                 <a href="indexLOG.html">
                     <button type="input">Descartar</button>
@@ -63,6 +60,37 @@
 
             </div>
         </form>
+        <script>
 
+            const createCollectionForm = document.querySelector("form");
+
+            createCollectionForm.onsubmit = async (e) => {
+                e.preventDefault();
+                let data = {
+                    "name": document.getElementById("name").value,
+                    "description": document.getElementById("description").value,
+                    "email": sessionStorage.getItem("email"),
+                    "category": document.getElementById("category").value,
+                };
+
+                let response = await fetch("./api/users/"+data.email+"/collections", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                let message = await response.json();
+                alert(message);
+
+                sessionStorage.setItem("name", data.name);
+                sessionStorage.setItem("author", data.author);
+                sessionStorage.setItem("description", data.description);
+
+                window.location.href = "create-collection.html";
+
+            }
+        </script>
     </body>
 </html>
