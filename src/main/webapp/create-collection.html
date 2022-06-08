@@ -35,7 +35,7 @@
                 <h1>Crear nueva coleccion</h1>
                 <!-- Div with the collection title information-->
                 <div class="grupo">
-                    <input type="text" name="" id="collection" required><span class="barra"></span>
+                    <input type="text" name="" id="name" required><span class="barra"></span>
                     <label>Titulo de la colección</label>
                 </div>
                 <!-- Div with the collection category information-->
@@ -43,51 +43,26 @@
                     <input type="text" name="" id="author" required><span class="barra"></span>
                     <label>Author</label>
                 </div>
+
+                <div class="grupo">
+                    <!--<textarea name="descripcion" id="description" cols="30" rows="10" placeholder="Descripcion"></textarea>-->
+                    <input type="text" id="description" ><span class="barra"></span>
+                    <label>Descripcion</label>
+                </div>
                 <!-- Button to create and publish the nft -->
+
+                <input type="submit" value="Realizar" class="button">
+
+               <!-- <a href="indexLOG.html">
+                    <button type="input">Crear</button>
+                </a>-->
+
                 <a href="indexLOG.html">
-                    <button type="submit">Crear</button>
+                    <button type="input">Descartar</button>
                 </a>
-                <a href="indexLOG.html">
-                    <button type="button">Descartar</button>
-                </a>
+
             </div>
         </form>
-<script>
-    const getName = async () => {
-        document.getElementById("name").value = localStorage.getItem("username");
-    }
 
-    const form = document.querySelector("formulario")
-
-    form.onsubmit = async (e) => {
-        e.preventDefault()
-
-        const formData = new FormData(form);
-
-        let author = document.getElementById("author") //agregar author
-        let collection = document.getElementById("collection").value;
-
-            let responseData = await fetch(`.api/users/${author}/collections/${collection}`);
-            let resultData = await responseData.json();
-
-        if(resultData.collection != collection){
-            let response = await fetch(`.api/users/${author}/collections` , {
-                method: "POST" ,
-                headers : {
-                    "Content-Type": "application/x-www-form.urlencoded",
-                },
-                body : new URLSearchParams(formData)
-            });
-            let result = response.json();
-
-            sessionStorage.setItem("collection", result.collection);
-            window.location.href = "create-nft-piece.html"
-        } else {
-            alert("La coleccion ya existe")
-        }
-    }
-
-    window.addEventListener("DOMContextLoaded", getName());
-</script>
     </body>
 </html>
