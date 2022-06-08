@@ -75,10 +75,8 @@
                     method: "POST",
                     headers: {
                         "Content-type": "application/json"
-                        //"Content-type": "application/x-www-form-urlencoded",
                     },
                     body: JSON.stringify(data),
-                    //body: new URLSearchParams(data),
                 });
 
                 let message = await response.json();
@@ -90,10 +88,11 @@
                 sessionStorage.setItem("role", data.role);
 
                 // redireccion al index
-                if(data.role == "artista")
+                if(data.role == "artista") {
                     window.location.href = "indexArtista.html";
-                else if(data.role == "comprador")
+                }else if(data.role == "comprador") {
                     window.location.href = "indexComprador.html";
+                }
             }
         </script>
     </body>

@@ -8,6 +8,7 @@
         <title>ClosedSea</title>
         <link rel="stylesheet" href="css/login.css">
         <script src="https://kit.fontawesome.com/5cd98f5e5b.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body>
 
@@ -29,7 +30,7 @@
                 <!-- div with the username input information -->
                 <div class="input-contenedor">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="text" placeholder="Username" id="username">
+                    <input type="text" placeholder="E-mail" id="email">
                 </div>
 
                 <div class="input-contenedor">
@@ -56,48 +57,28 @@
             form.onsubmit = async (e) => {
                 e.preventDefault();
                 let data = {
-                    "username": document.getElementById("username").value,
+                    "email": document.getElementById("email").value,
                     "password": document.getElementById("password").value,
                     "role": document.getElementById("role").value
                 }
 
-                let response = await fetch("./api/users/" + data.username);
+                let response = await fetch("./api/users/" + data.email);
                 let result = await response.json();
 
-                if (result != null) {
-                    sessionStorage.setItem("username", result.username);
+                if(data.email == result.email && data.password == result.password && data.role == result.role){
+                    sessionStorage.setItem("email", result.email);
                     sessionStorage.setItem("coins", result.coins);
-                    window.location.href = "indexComprador.html"
+                    sessionStorage.setItem("role", data.role);
+                    // redireccion al index
+                    if(data.role == "artista") {
+                        window.location.href = "indexArtista.html";
+                    }else if(data.role == "comprador") {
+                        window.location.href = "indexComprador.html";
+                    }
+                }else{
+                    swal("Error!", "Alguna credencial es incorrecta!", "error");
                 }
             }
         </script>
-
-        <!--        <script>
-                    let form = document.getElementById("log-in-form");
-
-                    form.onsubmit = async (e) => {
-                        e.preventDefault();
-                        let data = {
-                            "username": document.getElementById("username").value,
-                            "password": document.getElementById("password").value,
-                            "role": document.getElementById("role").value,
-                        };
-
-                        let response = await fetch("./api/users/" + username, {
-                            method: "GET",
-                            headers: {
-                                "content-type": "application/json"
-                            },
-                            // body: JSON.stringify(data)
-                        });
-
-                        console.log(response);
-
-                        sessionStorage.setItem("username", data.username);
-                        sessionStorage.setItem("coins", data.coins);
-                        // let user = await response.json();
-                        // alert(user);
-                    }
-                </script>-->
     </body>
 </html>
