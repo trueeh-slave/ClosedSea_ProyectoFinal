@@ -114,17 +114,26 @@ body {
 }
 
 .card{
-    background-color: #3b3f3e;
+    background-color: #0c0a0a;
     padding: 1.75rem;
     border-radius: 1.75rem;
     display: flex;
     flex-wrap: wrap;
+    z-index: 100;
 }
 
-.card .card-header{
+/*.card .card-header{
     flex-basis: 100%;
     font-size: 1.5rem;
     text-transform: uppercase;
+}*/
+
+.card h2{
+    flex-basis: 100%;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #357dbc;
+
 }
 
 .card .card-body{
@@ -134,6 +143,11 @@ body {
 
 .card .card-body p{
     margin: 0;
+}
+
+.card .card-body label{
+    margin: 0;
+    color: #357dbc;
 }
 
 .card .card-body a{

@@ -39,37 +39,55 @@
             <div class="form">
                 <!-- Wallet title -->
                 <h1>Wallet</h1>
-                <!-- Owners name input -->
+
                 <div class="grupo">
-                    <input type="text" name="username" required><span class="barra"></span>
-                    <label>Nombre de usuario</label>
+                    <input type="text" name="type" id="type" required><span class="barra"></span>
+                    <label>Tipo de movimento</label>
                 </div>
+
                 <div class="grupo">
-                    <input type="text" name="" required><span class="barra"></span>
-                    <label>Nombre del titular</label>
+                    <input type="text" name="fcoins" id="fcoins" required><span class="barra"></span>
+                    <label>Fcoins</label>
                 </div>
-                <!-- Card number  input -->
-                <div class="grupo">
-                    <input type="text" name="" id="Numero" required><span class="barra"></span>
-                    <label>Número de tarjeta</label>
-                </div>
-                <!-- Expiration date input -->
-                <div class="grupo">
-                    <input type="date" required><span class="barra"></span>
-                </div>
-                <!-- CVV input -->
-                <div class="grupo">
-                    <input type="text" required><span class="barra"></span>
-                    <label>Código de la tarjeta (CVV)</label>
-                </div>
-                <!-- Cantidad input -->
-                <div class="grupo">
-                    <input type="text" name="coins" required><span class="barra"></span>
-                    <label>Cantidad a recargar</label>
-                </div>
+
+            </div>
                 <!-- Pay button -->
-                <button type="submit">Pagar</button>
+                <button type="input">Pagar</button>
+            <a href="javascript: history.go(-1)">
+                <button type="button">Volver</button>
+            </a>
             </div>
         </form>
+
+        <script>
+            const createWallethistoryForm = document.querySelector("form");
+
+            createWallethistoryForm.onsubmit = async (e) => {
+                e.preventDefault();
+                let data = {
+                    "type": document.getElementById("type").value,
+                    "email": sessionStorage.getItem("email"),
+                    "fcoins": document.getElementById("fcoins").value,
+                };
+
+                let response = await fetch("./api/users/"+data.email+"/wallet-histories", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                let message = await response.json();
+                alert(message);
+
+                sessionStorage.setItem("type", data.type);
+                sessionStorage.setItem("fcoins", data.fcoins);
+
+                window.location.href = "wallet.html";
+
+            }
+        </script>
+
     </body>
 </html>
