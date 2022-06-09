@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Like")
-public class Like {
+@Table(name = "LikeArt")
+public class LikeArt {
 
     @Id
     @GeneratedValue
@@ -24,11 +24,11 @@ public class Like {
     @Column(name = "registeredAt")
     private Date registeredAt;
 
-    public Like(){
+    public LikeArt(){
 
     }
 
-    public Like(Art art, UserApp userApp, Date registeredAt){
+    public LikeArt(Art art, UserApp userApp, Date registeredAt){
         this.art = art;
         this.userApp = userApp;
         this.registeredAt = registeredAt;

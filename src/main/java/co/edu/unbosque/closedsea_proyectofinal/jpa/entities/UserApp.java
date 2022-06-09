@@ -33,7 +33,7 @@ public class UserApp {
     private Set<Collection> collections = new HashSet<>();
 
     @OneToMany(mappedBy = "userApp", fetch = FetchType.EAGER)
-    private Set<Like> like = new HashSet<>();
+    private Set<LikeArt> like = new HashSet<>();
 
     @OneToMany(mappedBy = "userApp", fetch = FetchType.EAGER)
     private Set<Ownership> ownership = new HashSet<>();
@@ -72,7 +72,7 @@ public class UserApp {
         return collections;
     }
 
-    public Set<Like> getLike() {
+    public Set<LikeArt> getLike() {
         return like;
     }
 

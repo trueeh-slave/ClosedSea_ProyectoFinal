@@ -11,7 +11,7 @@
         <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.WalletHistory</class>
         <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Collection</class>
         <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art</class>
-        <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Like</class>
+        <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.LikeArt</class>
         <class>co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Ownership</class>
 
 

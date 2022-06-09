@@ -1,6 +1,6 @@
 package co.edu.unbosque.closedsea_proyectofinal.jpa.repositories;
 
-import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Like;
+import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.LikeArt;
 import jakarta.persistence.EntityManager;
 
 import java.util.Optional;
@@ -14,7 +14,7 @@ public class LikeRepositoryImpl implements LikeRepository{
     }
 
     @Override
-    public Optional<Like> save(Like like) {
+    public Optional<LikeArt> save(LikeArt like) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(like);

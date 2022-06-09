@@ -1,10 +1,10 @@
 package co.edu.unbosque.closedsea_proyectofinal.jpa.repositories;
 
-import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Like;
+import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.LikeArt;
 
 import java.util.Optional;
 
 public interface LikeRepository {
 
-    Optional<Like> save(Like like);
+    Optional<LikeArt> save(LikeArt like);
 }

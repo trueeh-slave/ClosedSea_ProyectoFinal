@@ -1,7 +1,6 @@
 package co.edu.unbosque.closedsea_proyectofinal.services;
 
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
-import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Like;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Ownership;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.UserApp;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.repositories.*;

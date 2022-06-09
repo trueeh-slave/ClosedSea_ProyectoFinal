@@ -34,7 +34,7 @@ public class Art {
     private Collection collection;
 
     @OneToMany(mappedBy = "art", fetch = FetchType.EAGER)
-    private List<Like> like = new ArrayList<>();
+    private List<LikeArt> like = new ArrayList<>();
 
     @OneToMany(mappedBy = "art", fetch = FetchType.EAGER)
     private List<Ownership> ownership = new ArrayList<>();
@@ -75,7 +75,7 @@ public class Art {
         return collection;
     }
 
-    public List<Like> getLike() {
+    public List<LikeArt> getLike() {
         return like;
     }
 

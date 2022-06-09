@@ -1,7 +1,7 @@
 package co.edu.unbosque.closedsea_proyectofinal.services;
 
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
-import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Like;
+import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.LikeArt;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.UserApp;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.repositories.*;
 import jakarta.persistence.EntityManager;
@@ -17,7 +17,7 @@ public class LikeService{
     ArtRepository artRepository;
     UserAppRepository userAppRepository;
 
-    public Optional<Like> save(int id, String email) throws Exception {
+    public Optional<LikeArt> save(int id, String email) throws Exception {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("closedsea");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -31,8 +31,8 @@ public class LikeService{
 
         if (userApp.isPresent() && art.isPresent()) {
 
-            Like like = new Like(art.get(), userApp.get(), new Date());
-            Optional<Like> persistedLike = likeRepository.save(like);
+            LikeArt like = new LikeArt(art.get(), userApp.get(), new Date());
+            Optional<LikeArt> persistedLike = likeRepository.save(like);
 
             entityManager.close();
             entityManagerFactory.close();
