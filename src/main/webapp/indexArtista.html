@@ -20,7 +20,7 @@
             <nav class="nav">
                 <!-- Navbar logo and avatar logo --->
                 <img src="./Resources/closedsea%20favicon.png" class="favicon">
-                <img src="./Resources/UserAvatar.png" class="nav-avatar">
+
                 <!-- Navbar text logo --->
                 <a href="#" class="logo nav-link">ClosedSea</a>
                 <!-- Navbar made with an ordered list and within that list an unordered list --->
@@ -29,7 +29,7 @@
                         <a href="#" class="nav-menu-link nav-link" id="username-prueba"></a>
                     </li>
                     <li class="nav-menu-item ">
-                        <a href="#" class="nav-menu-link nav-link"  id="fcoins-user">FCoins: </a>
+                        <a href="#" class="nav-menu-link nav-link"  id="fcoins-user"></a>
                     </li>
                 </ul>
             </nav>
@@ -56,15 +56,26 @@
             <a href="create-collection.html">
                 <button class="collection-btn"> Create Collection <i class="fa-solid fa-circle-plus"></i></button>
             </a>
-
         </div>
 
         <script>
             let name = sessionStorage.getItem("name");
             console.log(name);
+            if(name != null){
+                document.getElementById("username-prueba").innerHTML = name;
+            }else{
+                document.getElementById("username-prueba").innerHTML = "Usuario";
+            }
 
-            document.getElementById("username-prueba").innerHTML = name;
+            let fcoins = sessionStorage.getItem("fcoins");
+            console.log(fcoins);
+            if(fcoins != null){
+                document.getElementById("fcoins-user").innerHTML = fcoins;
+            }else{
+                document.getElementById("fcoins-user").innerHTML = "0.0";
+            }
         </script>
+
     </body>
 
     <!-- Page footer -->

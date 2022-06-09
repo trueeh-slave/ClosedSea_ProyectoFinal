@@ -67,7 +67,7 @@
 
                 if(data.email == result.email && data.password == result.password && data.role == result.role){
                     sessionStorage.setItem("email", result.email);
-                    sessionStorage.setItem("coins", result.coins);
+                    sessionStorage.setItem("password", result.password);
                     sessionStorage.setItem("role", data.role);
                     // redireccion al index
                     if(data.role == "artista") {
