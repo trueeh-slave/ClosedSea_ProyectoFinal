@@ -212,7 +212,16 @@ button {
     border-radius: 20px;
 }
 
+.lblcheckbox{
+    position: relative;
+    left: 50px;
+    bottom: 30px
+}
 
+#switch{
+    position: relative;
+    bottom: 15px;
+}
 /*shapes the icons*/
 
 /*modifies the size of the page depending on the device*/

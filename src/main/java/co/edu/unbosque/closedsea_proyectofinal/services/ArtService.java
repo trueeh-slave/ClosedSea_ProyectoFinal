@@ -38,4 +38,18 @@ public class ArtService {
             throw new Exception("Collection not found");
         }
     }
+    public Optional<Art> get(int id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("closedsea");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        artRepository = new ArtRepositoryImpl(entityManager);
+        Optional<Art> art = ArtRepository.findById(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return art;
+    }
+
 }
