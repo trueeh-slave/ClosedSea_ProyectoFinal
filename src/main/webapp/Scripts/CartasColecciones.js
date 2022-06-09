@@ -36,7 +36,7 @@ const getData = async () => {
 
                 <a href="collections.html">Ver NFT´s</a>
             </div>
-        `
+       `
     })
 }
 

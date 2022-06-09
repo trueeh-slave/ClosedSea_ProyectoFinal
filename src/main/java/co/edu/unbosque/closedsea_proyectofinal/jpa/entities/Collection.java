@@ -2,6 +2,9 @@ package co.edu.unbosque.closedsea_proyectofinal.jpa.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "Collection")
 public class Collection {
@@ -23,6 +26,10 @@ public class Collection {
     @ManyToOne
     @JoinColumn(name = "email")
     private UserApp userApp;
+
+    // FetchType.EAGER
+    @OneToMany(mappedBy = "Collection", fetch = FetchType.EAGER)
+    private List<Art> art = new ArrayList<>();
 
     public Collection() {
     }

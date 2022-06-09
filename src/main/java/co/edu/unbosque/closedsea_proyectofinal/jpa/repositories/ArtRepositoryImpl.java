@@ -1,31 +1,34 @@
 package co.edu.unbosque.closedsea_proyectofinal.jpa.repositories;
+
+import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Collection;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.UserApp;
 import jakarta.persistence.EntityManager;
+
 import java.util.Optional;
 
-public class CollectionRepositoryImpl implements CollectionRepository {
+public class ArtRepositoryImpl implements ArtRepository{
 
     private EntityManager entityManager;
 
-    public CollectionRepositoryImpl(EntityManager entityManager) {
+    public ArtRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
-    public Optional<Collection> findById(int id) {
-        Collection collection = entityManager.find(Collection.class, id);
-        return collection != null ? Optional.of(collection) : Optional.empty();
+    public Optional<Art> findById(int id) {
+        Art art = entityManager.find(Art.class, id);
+        return art != null ? Optional.of(art) : Optional.empty();
     }
 
     @Override
-    public Optional<Collection> save(Collection collection) {
+    public Optional<Art> save(Art art) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(collection);
+            entityManager.persist(art);
             entityManager.getTransaction().commit();
 
-            return Optional.of(collection);
+            return Optional.of(art);
         } catch (Exception e) {
             e.printStackTrace();
         }

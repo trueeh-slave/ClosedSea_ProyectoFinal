@@ -32,6 +32,12 @@ public class UserApp {
     @OneToMany(mappedBy = "userApp", fetch = FetchType.EAGER)
     private Set<Collection> collections = new HashSet<>();
 
+    @OneToMany(mappedBy = "userApp", fetch = FetchType.EAGER)
+    private Set<Like> like = new HashSet<>();
+
+    @OneToMany(mappedBy = "userApp", fetch = FetchType.EAGER)
+    private Set<Ownership> ownership = new HashSet<>();
+
     public UserApp() {
     }
 
@@ -64,5 +70,13 @@ public class UserApp {
 
     public Set<Collection> getCollections() {
         return collections;
+    }
+
+    public Set<Like> getLike() {
+        return like;
+    }
+
+    public Set<Ownership> getOwnership() {
+        return ownership;
     }
 }
