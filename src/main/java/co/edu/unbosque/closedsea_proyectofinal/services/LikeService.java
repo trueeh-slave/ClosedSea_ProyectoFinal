@@ -1,7 +1,6 @@
 package co.edu.unbosque.closedsea_proyectofinal.services;
 
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
-import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Collection;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Like;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.UserApp;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.repositories.*;
@@ -12,7 +11,7 @@ import jakarta.persistence.Persistence;
 import java.util.Date;
 import java.util.Optional;
 
-public class LikeService {
+public class LikeService{
 
     LikeRepository likeRepository;
     ArtRepository artRepository;

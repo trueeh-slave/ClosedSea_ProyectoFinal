@@ -3,7 +3,9 @@ package co.edu.unbosque.closedsea_proyectofinal.jpa.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,11 +33,11 @@ public class Art {
     @JoinColumn(name = "collection")
     private Collection collection;
 
-    @OneToMany(mappedBy = "Art", fetch = FetchType.EAGER)
-    private Set<Like> like = new HashSet<>();
+    @OneToMany(mappedBy = "art", fetch = FetchType.EAGER)
+    private List<Like> like = new ArrayList<>();
 
-    @OneToMany(mappedBy = "Art", fetch = FetchType.EAGER)
-    private Set<Ownership> ownership = new HashSet<>();
+    @OneToMany(mappedBy = "art", fetch = FetchType.EAGER)
+    private List<Ownership> ownership = new ArrayList<>();
 
     public Art() {
 
@@ -73,11 +75,11 @@ public class Art {
         return collection;
     }
 
-    public Set<Like> getLike() {
+    public List<Like> getLike() {
         return like;
     }
 
-    public Set<Ownership> getOwnership() {
+    public List<Ownership> getOwnership() {
         return ownership;
     }
 }

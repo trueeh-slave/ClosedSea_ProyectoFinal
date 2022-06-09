@@ -28,7 +28,7 @@ public class Collection {
     private UserApp userApp;
 
     // FetchType.EAGER
-    @OneToMany(mappedBy = "Collection", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "collection", fetch = FetchType.EAGER)
     private List<Art> art = new ArrayList<>();
 
     public Collection() {
