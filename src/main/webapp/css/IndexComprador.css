@@ -258,7 +258,7 @@ When the course passes, next to the button the button glows up
     border-radius: 10px;
     border: none;
     background-color: #5427b6;
-    margin-left: 90px;
+    margin-left: 17px;
 }
 
 i {
@@ -291,11 +291,32 @@ Gives style to the button create in the index
     margin-left: 17px;
 }
 
+
 /**
 When the course passes, next to the button te button glows up
 */
 .create-btn:hover {
     background-color: #5b5a5a;
+    transition: 0.5s;
+}
+
+.collection-btn {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 19px;
+    color: #fff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 25px;
+    border-radius: 10px;
+    border: 6px #1c1c1f;
+    background-color: #07867E;
+    margin-left: 13px;
+}
+
+.collection-btn:hover {
+    background-color: #099990;
     transition: 0.5s;
 }
 

@@ -17,11 +17,11 @@
                 <img src="./Resources/closedsea%20favicon.png" class="favicon">
                 <img src="./Resources/UserAvatar.png" class="nav-avatar">
                 <!-- Navbar text logo --->
-                <a href="indexLOG.jsp" class="logo nav-link">ClosedSea</a>
+                <a href="indexArtista.html" class="logo nav-link">ClosedSea</a>
                 <!-- Navbar made with an ordered list and within that list an unordered list --->
                 <ul class="nav-menu">
                     <li class="nav-menu-item">
-                        <a href="exploreComprador.html" class="nav-menu-link nav-link">Explore</a>
+                        <a href="explore.html" class="nav-menu-link nav-link">Explore</a>
                     </li>
                     <li class="nav-menu-item nav-menu-login">
                         <a href="#" class="nav-menu-link nav-link">trueeh</a>
@@ -54,7 +54,7 @@
                     <button type="submit">Crear</button>
                 </a>
 
-                <a href="indexLOG.html">
+                <a href="javascript: history.go(-1)">
                     <button type="input">Descartar</button>
                 </a>
 
@@ -87,6 +87,8 @@
                 sessionStorage.setItem("name", data.name);
                 sessionStorage.setItem("author", data.author);
                 sessionStorage.setItem("description", data.description);
+                sessionStorage.setItem("category", data.category);
+
 
                 window.location.href = "create-collection.html";
 
