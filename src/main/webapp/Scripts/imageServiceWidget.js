@@ -4,7 +4,7 @@ const button = document.getElementById("imagebutton");
 let imagepath = '';
 let widget_cloudinary = cloudinary.createUploadWidget({
     cloudName: 'closedsea',
-    uploadPresets: 'upload_closedsea'
+    uploadPreset: 'upload_closedsea'
 }, (err,result) =>{
     if(!err && result & result.event === 'success'){
         console.log('imagen subida con exito', result.info);
@@ -17,7 +17,7 @@ button.addEventListener('click', ()=> {
 }, false);
 
 let dataCheckbox = ''
-getCheckbox.onclick = function (){
+document.getElementById("checkboxForm").onclick = function (){
     if(document.getElementById("checkboxForm").checked === true){
         dataCheckbox = true;
     } else {
@@ -32,9 +32,26 @@ createNftForm.onsubmit = async (e) => {
     let data = {
         "forSale": dataCheckbox.value,
         "imagepath": imagepath.value,
-        "name": document.getElementById("name").value,
+        "title": document.getElementById("title").value,
         "price": document.getElementById("price").value,
+        "email": sessionStorage.getItem("email"),
+        "collection": sessionStorage.getItem("collection")
     };
+    let response = await fetch("./api/users/"+data.email+"/collections/"+data.collection+"/arts",{
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(data),
+    });
 
-    let response = await fetch("./api/users/")
+    let message = await response.json();
+    alert(message);
+
+    sessionStorage.setItem("forSale", data.forSale);
+    sessionStorage.setItem("imagepath", data.imagepath);
+    sessionStorage.setItem("title", data.title);
+    sessionStorage.setItem("price", data.price);
+
+    window.location.href = "wallet.html";
 }

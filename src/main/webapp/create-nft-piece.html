@@ -33,18 +33,18 @@
             </nav>
         </header>
         <!-- Nft main page and main div with information -->
-        <form action="./upload-test" method="post" id="form" enctype="multipart/form-data">
+        <form id="form">
             <div class="form">
                 <!-- Create a new nft title -->
                 <h1>Crear nuevo NFT</h1>
                 <!-- Nft title information -->
                 <div class="grupo">
-                    <input type="text" name="name" required><span class="barra"></span>
+                    <input type="text" id="title" required><span class="barra"></span>
                     <label>Titulo del NFT</label>
                 </div>
                 <!-- Author input div -->
                 <div class="grupo">
-                    <input type="text" name="price" required><span class="barra"></span>
+                    <input type="text" id="price" required><span class="barra"></span>
                     <label>Precio</label>
                 </div>
                 <!-- Image input div -->
@@ -59,11 +59,11 @@
                     <input type="checkbox" id="checkboxForm">
                 </div>
                 <!-- Create button  -->
-                <a href="indexLOG.html">
+                <a href="wallet.html">
                     <button type="submit" id="createButton">Crear</button>
                 </a>
                 <!-- Discard button  -->
-                <a href="indexLOG.html">
+                <a href="javascript: history.go(-1)">
                     <button type="button">Descartar</button>
                 </a>
             </div>

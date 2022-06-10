@@ -44,7 +44,7 @@ public class ArtService {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         artRepository = new ArtRepositoryImpl(entityManager);
-        Optional<Art> art = ArtRepository.findById(id);
+        Optional<Art> art = artRepository.findById(id);
 
         entityManager.close();
         entityManagerFactory.close();

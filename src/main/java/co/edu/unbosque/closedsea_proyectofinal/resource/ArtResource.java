@@ -18,7 +18,7 @@ public class ArtResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response save(int id, ArtPOJO artPOJO){
+    public Response save(@PathParam("email") String email, @PathParam("collection") int id, ArtPOJO artPOJO){
         ArtService artService = new ArtService();
 
         try{
