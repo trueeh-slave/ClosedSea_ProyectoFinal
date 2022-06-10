@@ -27,6 +27,8 @@ document.getElementById("checkboxForm").onclick = function (){
 
 const createNftForm = document.querySelector("form");
 
+let collec =  sessionStorage.getItem("name");
+
 createNftForm.onsubmit = async (e) => {
     e.preventDefault()
     let data = {
@@ -35,9 +37,9 @@ createNftForm.onsubmit = async (e) => {
         "title": document.getElementById("title").value,
         "price": document.getElementById("price").value,
         "email": sessionStorage.getItem("email"),
-        "collection": sessionStorage.getItem("collection")
+
     };
-    let response = await fetch("./api/users/"+data.email+"/collections/"+data.collection+"/arts",{
+    let response = await fetch("./api/collections/"+collec+"/arts",{
         method: "POST",
         headers: {
             "Content-type": "application/json"

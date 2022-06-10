@@ -12,13 +12,15 @@ import jakarta.ws.rs.core.Response;
 import javax.print.attribute.standard.Media;
 import java.util.Optional;
 
-@Path("/users/{email}/collections/{collection}/arts")
+/*@Path("/users/{email}/collections/{collection}/arts")*/
+
+@Path("/collections/{collection}/arts")
 public class ArtResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response save(@PathParam("email") String email, @PathParam("collection") int id, ArtPOJO artPOJO){
+    public Response save(@PathParam("collection") int id, ArtPOJO artPOJO){
         ArtService artService = new ArtService();
 
         try{
@@ -36,6 +38,7 @@ public class ArtResource {
                         .build();
             }
         } catch (Exception e){
+            e.printStackTrace();
             return Response.status(404).build();
         }
     }

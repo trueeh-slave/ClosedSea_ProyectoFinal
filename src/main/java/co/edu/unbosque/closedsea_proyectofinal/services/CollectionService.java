@@ -1,5 +1,6 @@
 package co.edu.unbosque.closedsea_proyectofinal.services;
 
+import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Collection;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.UserApp;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.repositories.*;
@@ -39,6 +40,34 @@ public class CollectionService {
         } else {
             throw new Exception("User not found");
         }
+    }
+
+    public Optional<Collection> get(int id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("closedsea");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        collectionRepository = new CollectionRepositoryImpl(entityManager);
+        Optional<Collection> collection = collectionRepository.findById(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return collection;
+    }
+
+    public Optional<Collection> get(String name) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("closedsea");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        collectionRepository = new CollectionRepositoryImpl(entityManager);
+        Optional<Collection> collection = collectionRepository.findByName(name);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return collection;
     }
 
 }

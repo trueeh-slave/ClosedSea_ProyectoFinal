@@ -19,6 +19,12 @@ public class CollectionRepositoryImpl implements CollectionRepository {
     }
 
     @Override
+    public Optional<Collection> findByName(String name) {
+        Collection collection = entityManager.find(Collection.class, name);
+        return collection != null ? Optional.of(collection) : Optional.empty();
+    }
+
+    @Override
     public Optional<Collection> save(Collection collection) {
         try {
             entityManager.getTransaction().begin();

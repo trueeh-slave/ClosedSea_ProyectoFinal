@@ -20,6 +20,12 @@ public class ArtRepositoryImpl implements ArtRepository{
     }
 
     @Override
+    public Optional<Art> findByName(String name) {
+        Art art = entityManager.find(Art.class, name);
+        return art != null ? Optional.of(art) : Optional.empty();
+    }
+
+    @Override
     public Optional<Art> save(Art art) {
         try {
             entityManager.getTransaction().begin();

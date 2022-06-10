@@ -9,4 +9,6 @@ public interface ArtRepository {
     Optional<Art> save(Art art);
 
     Optional<Art> findById(int id);
+
+    Optional<Art> findByName(String name);
 }

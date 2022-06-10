@@ -11,4 +11,6 @@ public interface CollectionRepository {
 
     Optional<Collection> findById(int id);
 
+    Optional<Collection> findByName(String name);
+
 }

@@ -2,7 +2,6 @@ package co.edu.unbosque.closedsea_proyectofinal.services;
 
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Collection;
-import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.UserApp;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -23,6 +22,7 @@ public class ArtService {
         collectionRepository = new CollectionRepositoryImpl(entityManager);
 
         Optional<Collection> collection = collectionRepository.findById(id);
+
 
         if (collection.isPresent()) {
 
@@ -45,6 +45,20 @@ public class ArtService {
 
         artRepository = new ArtRepositoryImpl(entityManager);
         Optional<Art> art = artRepository.findById(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return art;
+    }
+
+    public Optional<Art> get(String name) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("closedsea");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        artRepository = new ArtRepositoryImpl(entityManager);
+        Optional<Art> art = artRepository.findByName(name);
 
         entityManager.close();
         entityManagerFactory.close();

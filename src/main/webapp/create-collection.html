@@ -30,7 +30,7 @@
             </nav>
         </header>
         <!-- Form declaration to get the new NFT information-->
-        <form action="" method="POST" id="formulario">
+        <form  id="formulario">
             <div class="form">
                 <h1>Crear nueva coleccion</h1>
                 <!-- Div with the collection title information-->
@@ -84,8 +84,7 @@
                 let message = await response.json();
                 alert(message);
 
-                sessionStorage.setItem("collection", data.name);
-                sessionStorage.setItem("author", data.author);
+                sessionStorage.setItem("name", data.name);
                 sessionStorage.setItem("description", data.description);
                 sessionStorage.setItem("category", data.category);
 
