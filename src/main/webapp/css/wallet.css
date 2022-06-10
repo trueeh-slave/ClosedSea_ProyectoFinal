@@ -174,17 +174,7 @@ button {
     font-family: "Montserrat", sans-serif;
     padding: 0 40px;
     line-height: 80px;
-    margin-left: -1600px;
-}
-
-/*shapes the user logo*/
-.nav-avatar {
-    margin-top: 15px;
-    height: 30px;
-    width: 30px;
-    position: relative;
-    left: 415px;
-    top: 10px;
+    margin-left: -850px;
 }
 
 /*Style the navigation bar*/

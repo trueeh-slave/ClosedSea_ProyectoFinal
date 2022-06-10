@@ -27,7 +27,7 @@ Logo image in the navbar
     height: 50px;
     width: 50px;
     position: relative;
-    left: 100px;
+    left: 20px;
 }
 
 /**
@@ -74,19 +74,6 @@ Logo text next to the logo image
     position: relative;
     left: -320px;
 }
-
-/**
-Navbar avatar style
-*/
-.nav-avatar {
-    margin-top: 10px;
-    height: 40px;
-    width: 40px;
-    position: relative;
-    left: 840px;
-    top: 10px;
-}
-
 /**
 Navbar menu style
 */

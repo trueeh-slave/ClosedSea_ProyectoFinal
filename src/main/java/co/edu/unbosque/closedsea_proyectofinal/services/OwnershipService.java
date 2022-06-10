@@ -4,6 +4,7 @@ import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Ownership;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.UserApp;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.repositories.*;
+import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -11,6 +12,8 @@ import jakarta.persistence.Persistence;
 import java.util.Date;
 import java.util.Optional;
 
+
+@Stateless
 public class OwnershipService {
 
     OwnershipRepository ownerRepository;

@@ -1,4 +1,4 @@
-let campo = document.querySelector("#card")
+let campo = document.querySelector("#socialcard")
 // se trae la info del .json
 
 //contador likes
@@ -19,14 +19,11 @@ const getData = async () => {
 
     const data = await resp.json();
     data.forEach(card => {
-        const { titulo, autor, categoria, descripcion } = card;
+        const { titulo, categoria, descripcion } = card;
         campo.innerHTML += ` 
          <div class="card" id="card">
             <div class="card-body">
                 <h2>${titulo}</h2>
-
-                <label>Autor:</label>
-                <p>${autor}</p><br>
 
                 <label>Categoria:</label>
                 <p>${categoria} </p><br>
@@ -39,5 +36,4 @@ const getData = async () => {
        `
     })
 }
-
 window.addEventListener('DOMContentLoaded', getData);
