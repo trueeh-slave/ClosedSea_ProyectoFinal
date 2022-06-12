@@ -3,12 +3,14 @@ package co.edu.unbosque.closedsea_proyectofinal.services;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Collection;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.repositories.*;
+import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.util.Optional;
 
+@Stateless
 public class ArtService {
     CollectionRepository collectionRepository;
     ArtRepository artRepository;

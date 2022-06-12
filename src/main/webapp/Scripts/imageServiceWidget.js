@@ -39,7 +39,7 @@ createNftForm.onsubmit = async (e) => {
         "email": sessionStorage.getItem("email"),
 
     };
-    let response = await fetch("./api/collections/"+collec+"/arts",{
+    let response = await fetch("./api/collections/"+collec+"/arts/",{
         method: "POST",
         headers: {
             "Content-type": "application/json"
@@ -55,5 +55,5 @@ createNftForm.onsubmit = async (e) => {
     sessionStorage.setItem("title", data.title);
     sessionStorage.setItem("price", data.price);
 
-    window.location.href = "wallet.html";
+    window.location.href = "../create-nft-piece.html";
 }

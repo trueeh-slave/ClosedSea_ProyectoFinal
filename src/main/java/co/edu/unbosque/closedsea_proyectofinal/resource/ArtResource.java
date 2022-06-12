@@ -3,17 +3,12 @@ package co.edu.unbosque.closedsea_proyectofinal.resource;
 import co.edu.unbosque.closedsea_proyectofinal.jpa.entities.Art;
 import co.edu.unbosque.closedsea_proyectofinal.resource.pojos.ArtPOJO;
 import co.edu.unbosque.closedsea_proyectofinal.services.ArtService;
-import jakarta.servlet.ServletContext;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-
-import javax.print.attribute.standard.Media;
 import java.util.Optional;
 
 /*@Path("/users/{email}/collections/{collection}/arts")*/
-
 @Path("/collections/{collection}/arts")
 public class ArtResource {
 
@@ -24,6 +19,8 @@ public class ArtResource {
         ArtService artService = new ArtService();
 
         try{
+
+
             Optional<Art> art =
                     artService.save(id,artPOJO.getName(),artPOJO.getPrice(),artPOJO.getImagePath(),artPOJO.isForSale());
 

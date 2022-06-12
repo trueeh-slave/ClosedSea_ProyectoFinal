@@ -19,8 +19,8 @@ public class CollectionRepositoryImpl implements CollectionRepository {
     }
 
     @Override
-    public Optional<Collection> findByName(String name) {
-        Collection collection = entityManager.find(Collection.class, name);
+    public Optional<Collection> findByName(String collectionName) {
+        Collection collection = entityManager.find(Collection.class, collectionName);
         return collection != null ? Optional.of(collection) : Optional.empty();
     }
 
@@ -35,7 +35,6 @@ public class CollectionRepositoryImpl implements CollectionRepository {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return Optional.empty();
     }
 }
