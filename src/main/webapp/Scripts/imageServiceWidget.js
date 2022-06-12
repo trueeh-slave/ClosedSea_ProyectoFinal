@@ -1,14 +1,18 @@
-'use strict'
+'use strict';
+const createNftForm = document.querySelector("form");
 
-const button = document.getElementById("imagebutton");
-let imagepath = '';
+
+/*const button = document.getElementById("imagePath");*/
+const button = document.querySelector('#imagePath');
+const img = document.querySelector('#image')
+
 let widget_cloudinary = cloudinary.createUploadWidget({
     cloudName: 'closedsea',
     uploadPreset: 'upload_closedsea'
 }, (err,result) =>{
-    if(!err && result & result.event === 'success'){
+    if(!err && result && result.event === 'success'){
         console.log('imagen subida con exito', result.info);
-        imagepath.src = result.info.secure_url;
+        img.src = result.info.secure_url;
     }
 });
 
@@ -25,20 +29,18 @@ document.getElementById("checkboxForm").onclick = function (){
     }
 }*/
 
-const createNftForm = document.querySelector("form");
-
 createNftForm.onsubmit = async (e) => {
     e.preventDefault()
+
     let data = {
         "id": document.getElementById("id").value,
-        "art": document.getElementById("art").value,
+        "name": document.getElementById("name").value,
         "forSale": document.getElementById("forSale").value,
-        //"imagepath": document.getElementById("imagepath").value,
-        "imagepath": imagepath.src,
+        "imagePath": img.src,
         "price": document.getElementById("price").value,
     };
 
-    let response = await fetch("./api/collections/"+data.id+"/arts",{
+    let response = await fetch("./api/collections/" + data.id + "/arts", {
         method: "POST",
         headers: {
             "Content-type": "application/json"
@@ -49,14 +51,14 @@ createNftForm.onsubmit = async (e) => {
     let message = await response.json();
     alert(message);
 
-    if(data.forSale ===  "No")
-    {
+    if (data.forSale === "No") {
         sessionStorage.setItem(false, data.forSale);
-    }else{
-        sessionStorage.setItem(false, data.forSale);
+    } else {
+        sessionStorage.setItem(true, data.forSale);
     }
-    sessionStorage.setItem("art", data.art);
-    sessionStorage.setItem("imagepath", data.imagepath);
+
+    sessionStorage.setItem("name", data.name);
+    sessionStorage.setItem("imagePath", data.imagePath);
     sessionStorage.setItem("price", data.price);
 
     window.location.href = "create-nft-piece.html";
