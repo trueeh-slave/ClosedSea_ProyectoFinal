@@ -16,30 +16,29 @@ button.addEventListener('click', ()=> {
     widget_cloudinary.open();
 }, false);
 
-let dataCheckbox = ''
+/*let dataCheckbox = ''
 document.getElementById("checkboxForm").onclick = function (){
     if(document.getElementById("checkboxForm").checked === true){
         dataCheckbox = true;
     } else {
         dataCheckbox = false;
     }
-}
+}*/
 
 const createNftForm = document.querySelector("form");
-
-let collec =  sessionStorage.getItem("name");
 
 createNftForm.onsubmit = async (e) => {
     e.preventDefault()
     let data = {
-        "forSale": dataCheckbox.value,
-        "imagepath": imagepath.value,
-        "title": document.getElementById("title").value,
+        "id": document.getElementById("id").value,
+        "art": document.getElementById("art").value,
+        "forSale": document.getElementById("forSale").value,
+        //"imagepath": document.getElementById("imagepath").value,
+        "imagepath": imagepath.src,
         "price": document.getElementById("price").value,
-        "email": sessionStorage.getItem("email"),
-
     };
-    let response = await fetch("./api/collections/"+collec+"/arts/",{
+
+    let response = await fetch("./api/collections/"+data.id+"/arts",{
         method: "POST",
         headers: {
             "Content-type": "application/json"
@@ -50,10 +49,15 @@ createNftForm.onsubmit = async (e) => {
     let message = await response.json();
     alert(message);
 
-    sessionStorage.setItem("forSale", data.forSale);
+    if(data.forSale ===  "No")
+    {
+        sessionStorage.setItem(false, data.forSale);
+    }else{
+        sessionStorage.setItem(false, data.forSale);
+    }
+    sessionStorage.setItem("art", data.art);
     sessionStorage.setItem("imagepath", data.imagepath);
-    sessionStorage.setItem("title", data.title);
     sessionStorage.setItem("price", data.price);
 
-    window.location.href = "../create-nft-piece.html";
+    window.location.href = "create-nft-piece.html";
 }
