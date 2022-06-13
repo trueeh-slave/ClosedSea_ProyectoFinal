@@ -27,6 +27,7 @@
     </nav>
 </header>
 
+<form id="InsertLike">
 <div class="container">
     <section class="card-section">
         <!-- card1 -->
@@ -49,14 +50,46 @@
 
                 <a href="wallet.html">Comprar</a>
 
-                <a href="#">Like</a>
+                <input type="submit" value="Like">
 
             </div>
         </div>
     </section>
 </div>
+</form>
 
 <script>
+
+    const InsertLike = document.querySelector("form");
+
+    InsertLike.onsubmit = async (e) => {
+        e.preventDefault();
+        let data = {
+            "email": document.getElementById("email").value,
+            "name": document.getElementById("name").value,
+            "collection": document.getElementById("collection").value,
+            "id": document.getElementById("id").value
+        };
+
+        let response = await fetch("./api/users/"+data.email+"/arts/"+data.id+"/like", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(data),
+        });
+
+        let message = await response.json();
+        alert(message);
+
+        sessionStorage.setItem("email",data.email);
+        sessionStorage.setItem("name",data.name);
+        sessionStorage.setItem("password", data.password);
+        sessionStorage.setItem("role", data.role);
+
+        window.location.href = "arts.html"
+
+
     let image = sessionStorage.getItem("imagePath");
     console.log(image);
     let imageput = document.querySelector('#img');

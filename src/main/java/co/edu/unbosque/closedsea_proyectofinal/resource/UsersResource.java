@@ -22,7 +22,7 @@ public class UsersResource {
 
         if (userApp.isPresent()) {
             return Response
-                    .status(201)
+                    .status(201) //Estado Ok
                     .entity(userApp.get())
                     .build();
         } else {
