@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/arts.css">
+    <title>Collections</title>
+</head>
+<body>
+
+<header class="header">
+    <!--NavBar-->
+    <nav class="nav">
+
+        <img src="./Resources/closedsea%20favicon.png" class="favicon">
+        <a href="javascript: history.go(-1)" class="logo nav-link">ClosedSea</a>
+
+        <ul class="nav-menu">
+            <li class="nav-menu-item">
+                <a href="explore.html" class="nav-menu-link nav-link">Explore</a>
+            </li>
+            <li class="nav-menu-item ">
+                <a href="wallet.html" class="nav-menu-link nav-link"> Wallet</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="card-section">
+        <!-- card1 -->
+        <div class="card" id="card">
+            <div class="card-body">
+
+                <img id="img" src="">
+
+                <p id="titulo"></p>
+
+                <label>Autor:</label>
+                <p id="autor"></p><br>
+
+                <label>Categoria:</label>
+                <p id="categoria"></p><br>
+
+                <label>Descripcion:</label>
+                <p id="descripcion"></p><br>
+
+                <input type="button" value="Comprar">
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    let image = sessionStorage.getItem("imagePath");
+    console.log(image);
+    let imageput = document.querySelector('#img');
+
+    imageput.src = image;
+
+    let title = sessionStorage.getItem("title");
+    console.log(title);
+
+    document.getElementById("titulo").innerHTML = title;
+
+    let author = sessionStorage.getItem("name");
+    console.log(author);
+
+    document.getElementById("autor").innerHTML = author;
+
+    let categoria = sessionStorage.getItem("category");
+    console.log(categoria);
+
+    document.getElementById("categoria").innerHTML = categoria;
+
+    let desc = sessionStorage.getItem("description");
+    console.log(desc);
+
+    document.getElementById("descripcion").innerHTML = desc;
+</script>
+</body>
+</html>

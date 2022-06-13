@@ -1,97 +1,95 @@
 <!DOCTYPE html>
 <!-- Declaration of language and apis to be used in html -->
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ClosedSea</title>
-        <link rel="stylesheet" href="css/create-collection.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Header declaration with css file --->
-        <header class="header">
-            <!--NavBar declaration and functions-->
-            <nav class="nav">
-                <!-- Navbar logo and avatar logo --->
-                <img src="./Resources/closedsea%20favicon.png" class="favicon">
-                <img src="./Resources/UserAvatar.png" class="nav-avatar">
-                <!-- Navbar text logo --->
-                <a href="indexArtista.html" class="logo nav-link">ClosedSea</a>
-                <!-- Navbar made with an ordered list and within that list an unordered list --->
-                <ul class="nav-menu">
-                    <li class="nav-menu-item">
-                        <a href="explore.html" class="nav-menu-link nav-link">Explore</a>
-                    </li>
-                    <li class="nav-menu-item nav-menu-login">
-                        <a href="#" class="nav-menu-link nav-link">trueeh</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <!-- Form declaration to get the new NFT information-->
-        <form  id="formulario">
-            <div class="form">
-                <h1>Crear nueva coleccion</h1>
-                <!-- Div with the collection title information-->
-                <div class="grupo">
-                    <input type="text" name="" id="name" required><span class="barra"></span>
-                    <label>Titulo de la colección</label>
-                </div>
-                <!-- Div with the collection category information-->
-                <div class="grupo">
-                    <input type="text" name="" id="description" required><span class="barra"></span>
-                    <label>Descripcion</label>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClosedSea</title>
+    <link rel="stylesheet" href="css/create-collection.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Header declaration with css file --->
+<header class="header">
+    <!--NavBar declaration and functions-->
+    <nav class="nav">
+        <!-- Navbar logo and avatar logo --->
+        <img src="./Resources/closedsea%20favicon.png" class="favicon">
+        <img src="./Resources/UserAvatar.png" class="nav-avatar">
+        <!-- Navbar text logo --->
+        <a href="indexArtista.html" class="logo nav-link">ClosedSea</a>
+        <!-- Navbar made with an ordered list and within that list an unordered list --->
+        <ul class="nav-menu">
+            <li class="nav-menu-item">
+                <a href="explore.html" class="nav-menu-link nav-link">Explore</a>
+            </li>
+            <li class="nav-menu-item nav-menu-login">
+                <a href="#" class="nav-menu-link nav-link">trueeh</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!-- Form declaration to get the new NFT information-->
+<form id="formulario">
+    <div class="form">
+        <h1>Crear nueva coleccion</h1>
+        <!-- Div with the collection title information-->
+        <div class="grupo">
+            <input type="text" name="" id="name" required><span class="barra"></span>
+            <label>Titulo de la colección</label>
+        </div>
+        <!-- Div with the collection category information-->
+        <div class="grupo">
+            <input type="text" name="" id="description" required><span class="barra"></span>
+            <label>Descripcion</label>
+        </div>
 
-                <div class="grupo">
-                    <!--<textarea name="descripcion" id="description" cols="30" rows="10" placeholder="Descripcion"></textarea>-->
-                    <input type="text" id="category" ><span class="barra"></span>
-                    <label>Categoria</label>
-                </div>
-                <!-- Button to create and publish the nft -->
-                <a href="wallet.html">
-                    <button type="submit">Crear</button>
-                </a>
+        <div class="grupo">
+            <!--<textarea name="descripcion" id="description" cols="30" rows="10" placeholder="Descripcion"></textarea>-->
+            <input type="text" id="category"><span class="barra"></span>
+            <label>Categoria</label>
+        </div>
+        <!-- Button to create and publish the nft -->
+        <a href="wallet.html">
+            <button type="submit">Crear</button>
+        </a>
 
-                <a href="javascript: history.go(-1)">
-                    <button type="input">Descartar</button>
-                </a>
+        <a href="javascript: history.go(-1)">
+            <button type="input">Descartar</button>
+        </a>
 
-            </div>
-        </form>
-        <script>
+    </div>
+</form>
+<script>
 
-            const createCollectionForm = document.querySelector("form");
+    const createCollectionForm = document.querySelector("form");
 
-            createCollectionForm.onsubmit = async (e) => {
-                e.preventDefault();
-                let data = {
-                    "name": document.getElementById("name").value,
-                    "description": document.getElementById("description").value,
-                    "email": sessionStorage.getItem("email"),
-                    "category": document.getElementById("category").value,
-                };
+    createCollectionForm.onsubmit = async (e) => {
+        e.preventDefault();
+        let data = {
+            "name": document.getElementById("name").value,
+            "description": document.getElementById("description").value,
+            "email": sessionStorage.getItem("email"),
+            "category": document.getElementById("category").value,
+        };
 
-                let response = await fetch("./api/users/"+data.email+"/collections", {
-                    method: "POST",
-                    headers: {
-                        "Content-type": "application/json"
-                    },
-                    body: JSON.stringify(data),
-                });
+        let response = await fetch("./api/users/" + data.email + "/collections", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(data),
+        });
 
-                let message = await response.json();
-                alert(message);
+        let message = await response.json();
+        alert(message);
 
-                sessionStorage.setItem("name", data.name);
-                sessionStorage.setItem("description", data.description);
-                sessionStorage.setItem("category", data.category);
+        sessionStorage.setItem("name", data.name);
+        sessionStorage.setItem("description", data.description);
+        sessionStorage.setItem("category", data.category);
 
-
-                window.location.href = "create-collection.html";
-
-            }
-        </script>
-    </body>
+        window.location.href = "create-collection.html";
+    }
+</script>
+</body>
 </html>

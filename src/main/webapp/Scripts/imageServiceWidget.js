@@ -1,33 +1,22 @@
 'use strict';
 const createNftForm = document.querySelector("form");
 
-
-/*const button = document.getElementById("imagePath");*/
 const button = document.querySelector('#imagePath');
 const img = document.querySelector('#image')
 
 let widget_cloudinary = cloudinary.createUploadWidget({
     cloudName: 'closedsea',
     uploadPreset: 'upload_closedsea'
-}, (err,result) =>{
-    if(!err && result && result.event === 'success'){
+}, (err, result) => {
+    if (!err && result && result.event === 'success') {
         console.log('imagen subida con exito', result.info);
         img.src = result.info.secure_url;
     }
 });
 
-button.addEventListener('click', ()=> {
+button.addEventListener('click', () => {
     widget_cloudinary.open();
 }, false);
-
-/*let dataCheckbox = ''
-document.getElementById("checkboxForm").onclick = function (){
-    if(document.getElementById("checkboxForm").checked === true){
-        dataCheckbox = true;
-    } else {
-        dataCheckbox = false;
-    }
-}*/
 
 createNftForm.onsubmit = async (e) => {
     e.preventDefault()

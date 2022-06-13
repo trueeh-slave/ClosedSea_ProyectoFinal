@@ -1,0 +1,171 @@
+/*Font import*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+/*Styles for all html*/
+
+
+/*Styles for body*/
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #222228;
+    color: #fafbff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+/*Styles applied to the header*/
+.header {
+    background-color: #1c1c1f;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+}
+
+/*Styles applied to the nav*/
+.nav {
+    padding: 5px;
+    display: flex;
+    max-width: 1300px;
+    justify-content: space-between;
+    margin: 0 auto;
+
+}
+
+.favicon {
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    left: -30px;
+}
+
+/*Styles applied to texts with links*/
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+/*Styles applied to the text ClosedSea*/
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    left: -390px;
+    padding: 0 40px;
+    line-height: 80px;
+}
+
+/*Styles applied to the menu inside the nav*/
+.nav-menu {
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+
+}
+
+/*Styles applied to menu items*/
+.nav-menu-item {
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 80px;
+    text-transform: none;
+    width: max-content;
+}
+
+.nav-menu-link {
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+
+/*Transition when hovering the mouse over menu items*/
+.nav-menu-link:hover {
+    background-color: #565454;
+    transition: 0.5s;
+}
+/* cierre de estilos nav*/
+
+
+/*Inicio estilos explore*/
+
+/*Styles applied to the title*/
+.tittle {
+    color: white;
+}
+
+.container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    z-index: 100;
+    margin-top: 90px;
+}
+
+.card-section {
+    display: grid;
+    gap: 1.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card {
+    background-color: #0c0a0a;
+    padding: 1.75rem;
+    border-radius: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card h2 {
+    flex-basis: 100%;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #357dbc;
+
+}
+
+.card .card-body {
+    flex-basis: 100%;
+    margin-top: 1.2rem;
+}
+
+.card .card-body p {
+    margin: 0;
+    color: #ffffff;
+}
+
+.card .card-body label {
+    margin: 0;
+    color: #357dbc;
+}
+
+.card .card-body a {
+    text-decoration: none;
+    color: #fafbff;
+    display: inline-block;
+    padding: 0.7rem 1.75rem;
+    border: 1px solid transparent;
+    background-color: #357dbc;
+    border-radius: 1.75rem;
+    margin-top: 1.2rem;
+    transition: background-color 0.4s ease-in, color 0.4s ease-in;
+}
+
+.card .card-body a:hover {
+    background-color: rgb(30, 199, 233);
+    border-color: #0e171f;
+    color: #0e171f;
+}
+
+.card .card-footer {
+    flex-basis: 100%;
+    align-self: flex-end;
+    text-align: end;
+    font-size: 0.8rem;
+}
